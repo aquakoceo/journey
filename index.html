@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<!-- 휴대폰에서도 화면 크기에 맞게 표시합니다 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>동네카페 | 메뉴 소개</title>
+<style>
+/* 모든 요소의 크기에 여백과 테두리를 포함합니다 */
+* { box-sizing: border-box; }
+/* 전체 글꼴과 배경색입니다 */
+body { margin:0; font-family:"맑은 고딕",sans-serif; color:#342a24; background:#faf7f2; line-height:1.6; }
+.container { width:min(1080px,90%); margin:0 auto; }
+/* 위쪽 카페 이름과 이동 링크입니다 */
+header { background:white; border-bottom:1px solid #e9e1d7; }
+.header-content { display:flex; justify-content:space-between; align-items:center; padding:20px 0; gap:16px; }
+.logo { font-size:22px; font-weight:bold; text-decoration:none; color:#4b3526; }
+nav a { color:#645346; text-decoration:none; }
+nav a:hover { text-decoration:underline; }
+/* 카페 소개 영역입니다 */
+.intro { padding:60px 0 40px; }
+.intro-label { margin:0 0 10px; color:#815733; font-size:14px; font-weight:bold; }
+h1 { margin:0 0 16px; font-size:clamp(30px,5vw,44px); line-height:1.3; }
+.intro-description { margin:0; color:#756658; }
+.menu-section { padding-bottom:60px; scroll-margin-top:20px; }
+h2 { margin:0 0 8px; font-size:25px; }
+.menu-description { margin:0 0 24px; color:#756658; }
+/* 큰 화면에서는 카드 네 개를 한 줄에 표시합니다 */
+.menu-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+.menu-card { overflow:hidden; background:white; border:1px solid #e9e1d7; border-radius:16px; box-shadow:0 4px 12px rgba(65,45,30,.04); }
+/* 이미지 파일 없이 이모지로 메뉴를 표현합니다 */
+.menu-picture { display:flex; justify-content:center; align-items:center; height:170px; background:#eee3d5; font-size:64px; }
+.latte { background:#f3e8dc; } .tea { background:#e7eddf; } .dessert { background:#f6e5dc; }
+.card-content { padding:20px; }
+.category { display:inline-block; padding:3px 9px; border-radius:20px; background:#f5f0e9; color:#70543d; font-size:12px; }
+.menu-card h3 { margin:12px 0 8px; font-size:19px; }
+.menu-card p { margin:0; color:#756658; font-size:14px; }
+.menu-card .price { margin-top:18px; color:#4b3526; font-size:18px; font-weight:bold; }
+/* 화면 아래쪽 카페 정보입니다 */
+footer { padding:24px 0; border-top:1px solid #e9e1d7; color:#756658; font-size:14px; }
+footer p { margin:4px 0; }
+/* 태블릿에서는 한 줄에 두 개를 표시합니다 */
+@media(max-width:900px) { .menu-grid { grid-template-columns:repeat(2,1fr); } }
+/* 작은 휴대폰에서는 한 줄에 하나를 표시합니다 */
+@media(max-width:480px) { .menu-grid { grid-template-columns:1fr; } .intro { padding-top:40px; } }
+</style>
+</head>
+<body>
+<header><div class="container header-content"><a href="#" class="logo">동네카페</a><nav aria-label="주요 메뉴"><a href="#menu">메뉴 보기</a></nav></div></header>
+<main class="container">
+<!-- 첫 화면의 소개 문구입니다 -->
+<section class="intro" aria-labelledby="intro-title"><p class="intro-label">우리 동네의 작은 쉼터</p><h1 id="intro-title">오늘도, 편안한 한 잔.</h1><p class="intro-description">정성껏 내린 커피와 달콤한 디저트를 만나보세요.</p></section>
+<section id="menu" class="menu-section" aria-labelledby="menu-title"><h2 id="menu-title">인기 메뉴</h2><p class="menu-description">동네카페에서 사랑받는 메뉴를 소개합니다.</p><div class="menu-grid">
+<!-- 카드의 이름, 설명, 가격을 원하는 내용으로 바꿔보세요 -->
+<article class="menu-card"><div class="menu-picture" aria-hidden="true">☕</div><div class="card-content"><span class="category">커피</span><h3>아메리카노</h3><p>고소한 원두 향과 깔끔한 맛을 즐길 수 있는 커피.</p><p class="price">3,500원</p></div></article>
+<!-- 두 번째 메뉴입니다 -->
+<article class="menu-card"><div class="menu-picture latte" aria-hidden="true">🥛</div><div class="card-content"><span class="category">커피</span><h3>카페라떼</h3><p>진한 에스프레소에 부드러운 우유를 더한 커피.</p><p class="price">4,000원</p></div></article>
+<!-- 세 번째 메뉴입니다 -->
+<article class="menu-card"><div class="menu-picture tea" aria-hidden="true">🍵</div><div class="card-content"><span class="category">차</span><h3>녹차라떼</h3><p>향긋한 녹차와 우유가 어우러진 달콤한 음료.</p><p class="price">4,500원</p></div></article>
+<!-- 네 번째 메뉴입니다 -->
+<article class="menu-card"><div class="menu-picture dessert" aria-hidden="true">🍰</div><div class="card-content"><span class="category">디저트</span><h3>치즈케이크</h3><p>커피와 함께 즐기기 좋은 진하고 부드러운 케이크.</p><p class="price">5,000원</p></div></article>
+</div></section></main>
+<!-- 실제 카페 정보로 수정하세요 -->
+<footer><div class="container"><p><strong>동네카페</strong> · 매일 10:00–20:00</p><p>주소: 우리동네 골목길 12 (예시 주소)</p></div></footer>
+</body></html>
+
